@@ -17,4 +17,6 @@ function onRequest(request, response) {
     });
 }
 
+console.log(JSON.stringify(json));
+
 http.createServer(onRequest).listen(8000);

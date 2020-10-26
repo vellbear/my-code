@@ -1,6 +1,19 @@
-let data = {
-    "name": "Levell",
-    "age": 21,
-    "school": "CSUSB"
-}
-console.log(data);
+let data = `[
+
+    {
+        "name": "Levell",
+        "age": 21,
+        "school": "CSUSB"
+    },
+    {
+        "name": "Jacob",
+        "age": 21,
+        "school": "CSUSB"
+    },
+    {
+        "name": "David",
+        "age": 22,
+        "school": "UCR"
+    }
+]`
+console.log(JSON.parse(data));
