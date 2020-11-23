@@ -1,25 +1,26 @@
 /*Authentication*/
-document.getElementById('login').addEventListener('click', e => {
-    const promise = firebase.auth().signInWithEmailAndPassword(document.getElementById('email'), document.getElementById('password'));
-    promise.catch(e => console.log(e.message));
-});
 
-document.getElementById('signup').addEventListener('click', e => {
-    const promise = firebase.auth().createUserWithEmailAndPassword(document.getElementById('email'), document.getElementById('password'));
-    promise.catch(e => console.log(e.message));
-});
+function login() {
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
 
-document.getElementById('logout').addEventListener('click', e => {
+    firebase.auth().signInWithEmailAndPassword(email, password);
+}
+
+function signup() {
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+}
+
+function logout() {
     firebase.auth().signOut;
-});
+}
 
-firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-        console.log(firebaseUser);
-    } else {
-        console.log('not loged in');
-    }
-});
+document.getElementById('login').addEventListener('click', login);
+document.getElementById('signup').addEventListener('click', signup);
+document.getElementById('logout').addEventListener('click', logout);
 
 //Enables welcome message
 function showWelcome() {
