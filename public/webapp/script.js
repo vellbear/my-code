@@ -1,10 +1,12 @@
 /*Authentication*/
-
 function login() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
 
     firebase.auth().signInWithEmailAndPassword(email, password);
+    document.getElementById('authenticationbox').style.display = 'none';
+    document.getElementById('showloggedin').style.display = 'block';
+    document.getElementById('logout').style.display = 'block';
 }
 
 function signup() {
@@ -12,20 +14,54 @@ function signup() {
     let password = document.getElementById('password').value;
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
+    document.getElementById('authenticationbox').style.display = 'none';
+    document.getElementById('showsignedin').style.display = 'block';
+    document.getElementById('logout').style.display = 'block';
 }
 
 function logout() {
     firebase.auth().signOut;
+    document.getElementById('authenticationbox').style.display = 'block';
+    document.getElementById('showloggedin').style.display = 'none';
+    document.getElementById('showsignedin').style.display = 'none';
+    document.getElementById('logout').style.display = 'none';
 }
 
 document.getElementById('login').addEventListener('click', login);
 document.getElementById('signup').addEventListener('click', signup);
 document.getElementById('logout').addEventListener('click', logout);
 
+//Cloud Firestore
+var firestore = firebase.firestore();
+const documentReference = firestore.doc("Users/Mood");
+const currentStatus = document.getElementById("moodStatus");
+const textbox = document.getElementById("mood");
+const saveButton = document.getElementById("save");
+
+function saveToFirestore() {
+    const text = textbox.value;
+    documentReference.set({
+        currentMood: text
+    });
+}
+
+function updateCurrentStatus() {
+    documentReference.onSnapshot(function(doc) {
+        if (doc && doc.exists) {
+            const myData = doc.data();
+            currentStatus.innerText = "Your Mood is: " + myData.currentMood;
+        }
+    })
+}
+
+saveButton.addEventListener('click', saveToFirestore);
+getRealtimeUpdates = updateCurrentStatus();
+
+
 //Enables welcome message
 function showWelcome() {
     document.getElementById("welcome").style.display = 'block';
-    document.getElementById("welcomediv").style.display = 'none';
+    //document.getElementById("welcomediv").style.display = 'none';
 }
 
 //Changes color of container

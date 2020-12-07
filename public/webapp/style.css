@@ -41,14 +41,19 @@ input {
     float: left;
     margin-left: 5px;
     margin-top: 5px;
+    height: auto;
 }
 
 #login,
-#signup,
-#logout {
+#signup {
     float: right;
     margin-right: 5px;
     margin-top: 5px;
+}
+
+#logout {
+    margin-left: auto;
+    display: none;
 }
 
 .button {
@@ -63,6 +68,14 @@ input {
 #authenticationbox {
     justify-content: center;
     background-color: white;
+    display: block;
+    height: auto;
+}
+
+#showsignedin,
+#showloggedin,
+#showloggedout {
+    display: none;
 }
 
 #dogepics {
@@ -97,4 +110,32 @@ input {
     border-style: solid;
     border-color: #FFDB0D;
     background-color: #FFDB0D;
+}
+
+#moodbox {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: #5194D6;
+}
+
+#moodstatus {
+    margin-left: 100px;
+}
+
+#mood {
+    background-color: #5194D6;
+    border-style: solid;
+    border-color: white;
+    color: white;
+}
+
+#mood::placeholder {
+    color: white;
+}
+
+#save,
+#logout {
+    margin-left: 20px;
+    margin-top: 6px;
 }

@@ -15,18 +15,28 @@ Project: Webpage
 </head>
 
 <header>
-    <h1>Levell's Webpage
-        <h1>
+    <h1>Levell's Webpage</h1>
+
 </header>
 
 <body>
+    <div id="moodbox">
+        <input type="textfield" id="mood" placeholder="Enter Current Mood" />
+        <button id="save" class="button"> Save </button>
+        <h1 id="moodStatus"> Your Mood is: </h1>
+        <button id="logout" class="button"> Logout </button>
+    </div>
+
     <div id="authenticationbox">
         <input type="email" id="email" placeholder="Email">
         <input type="password" id="password" placeholder="Password">
-        <button id="logout" class="button"> Logout </button>
         <button id="signup" class="button" onclick="showWelcome()"> Sign Up </button>
         <button id="login" class="button" onclick="showWelcome()"> Login </button><br><br>
     </div>
+
+    <div id="showsignedin"> You've signed in!</div>
+    <div id="showloggedin"> You've logged in!</div>
+    <div id="showloggedout"> You've logged out!</div>
     <!--
     <div id="welcomediv">
         <h1> Click the Welcome button</h1>
@@ -59,7 +69,6 @@ Project: Webpage
         <iframe width="515" height="315" src="https://www.youtube.com/embed/gyuhQUnGUVw"></iframe>
     </article>
 
-    <script src="script.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/8.1.1/firebase-app.js"></script>
 
@@ -67,9 +76,14 @@ Project: Webpage
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
     <script src="/__/firebase/8.1.1/firebase-auth.js"></script>
+    <script src="/__/firebase/8.1.2/firebase-firestore.js"></script>
 
     <!-- Initialize Firebase -->
+    <!--<script src="/__/firebase/init.js?useEmulator=true"></script>-->
     <script src="/__/firebase/init.js"></script>
+
+    <!-- JS files to include -->
+    <script src="script.js"></script>
 </body>
 
 </html>
