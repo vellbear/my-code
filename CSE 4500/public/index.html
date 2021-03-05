@@ -10,11 +10,28 @@ Project: Task Tracker
 <head>
     <title>Task Track</title>
     <link rel="stylesheet" href="style.css" />
-
+    <script type="text/javascript" src="script.js" defer></script>
+    <script type="text/javascript" src="data.json"></script>
 </head>
 
 <body>
-    <div id=mainbox>
+    <!--Authentication-->
+    <div id="authenticationbox">
+        <label for="email">EMAIL</label><br>
+        <input type="email" id="email" placeholder="Email"><br>
+        <label for="password">PASSWORD</label><br>
+        <input type="password" id="password" placeholder="Password"><br><br>
+        <button id="signup" class="button"> Sign Up </button>
+        <button id="login" class="button"> Login </button>
+    </div>
+    <button id="logout" class="button"> Logout </button>
+
+    <div id="showsignedin"> You've signed in!</div>
+    <div id="showloggedin"> You've logged in!</div>
+    <div id="showloggedout"> You've logged out!</div>
+
+    <!--Timer-->
+    <div class=mainbox>
         <div id="score">Timer</div>
         <div id="timer">00:00:00</div>
         <div id="buttons">
@@ -22,7 +39,19 @@ Project: Task Tracker
             <button id="stop" onclick="stopTimer()" class="button">Stop</button>
         </div>
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.1.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.1.1/firebase-auth.js"></script>
+    <script src="/__/firebase/8.1.2/firebase-firestore.js"></script>
+
+    <!-- Initialize Firebase -->
+    <!--<script src="/__/firebase/init.js?useEmulator=true"></script>-->
+    <script src="/__/firebase/init.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>

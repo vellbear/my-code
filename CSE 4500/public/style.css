@@ -1,10 +1,3 @@
-#mainbox {
-    /*margin: 0 auto;*/
-    margin: 20%;
-    text-align: center;
-    font-size: 100px;
-}
-
 .button {
     border-style: solid;
     background-color: dodgerblue;
@@ -13,10 +6,57 @@
     font-size: 50px;
 }
 
+
+/*Authentication*/
+
+#showsignedin,
+#showloggedin,
+#showloggedout {
+    display: none;
+}
+
+#signup {
+    margin-right: 12px;
+}
+
+#login {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#logout {
+    display: none;
+    right: 0px;
+}
+
+#email,
+#password {
+    height: 50px;
+    width: 400px;
+}
+
+
+/*Timer*/
+
+.mainbox {
+    /*margin: 0 auto;*/
+    text-align: center;
+    font-size: 100px;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+}
+
 #start {
     margin-right: 10px;
 }
 
 #stop {
     margin-left: 10px;
+}
+
+#score,
+#timer,
+#buttons {
+    padding-top: 70px;
 }

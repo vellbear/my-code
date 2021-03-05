@@ -1,4 +1,4 @@
-//Timer
+/*Timer*/
 var timer;
 var countTime = 0;
 
@@ -36,3 +36,36 @@ function stopTimer() {
     document.getElementById("timer").innerHTML = countTime;
     countTime = 0;
 }
+
+/*Authentication*/
+function login() {
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password);
+    document.getElementById('authenticationbox').style.display = 'none';
+    document.getElementById('showloggedin').style.display = 'block';
+    document.getElementById('logout').style.display = 'block';
+}
+
+function signup() {
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    document.getElementById('authenticationbox').style.display = 'none';
+    document.getElementById('showsignedin').style.display = 'block';
+    document.getElementById('logout').style.display = 'block';
+}
+
+function logout() {
+    firebase.auth().signOut;
+    document.getElementById('authenticationbox').style.display = 'block';
+    document.getElementById('showloggedin').style.display = 'none';
+    document.getElementById('showsignedin').style.display = 'none';
+    document.getElementById('logout').style.display = 'none';
+}
+
+document.getElementById('login').addEventListener('click', login);
+document.getElementById('signup').addEventListener('click', signup);
+document.getElementById('logout').addEventListener('click', logout);
