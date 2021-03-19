@@ -15,29 +15,61 @@ Project: Task Tracker
 </head>
 
 <body>
-    <!--Authentication-->
-    <div id="authenticationbox">
-        <label for="email">EMAIL</label><br>
-        <input type="email" id="email" placeholder="Email"><br>
-        <label for="password">PASSWORD</label><br>
-        <input type="password" id="password" placeholder="Password"><br><br>
-        <button id="signup" class="button"> Sign Up </button>
-        <button id="login" class="button"> Login </button>
+    <!--Logout Box-->
+    <div class="logoutbox">
+        <div id="showsignedin"> You've signed in!</div>
+        <div id="showloggedin"> You've logged in!</div>
+        <div id="showloggedout"> You've logged out!</div>
+        <button id="logout" class="button"> Logout </button>
     </div>
-    <button id="logout" class="button"> Logout </button>
-
-    <div id="showsignedin"> You've signed in!</div>
-    <div id="showloggedin"> You've logged in!</div>
-    <div id="showloggedout"> You've logged out!</div>
 
     <!--Timer-->
     <div class=mainbox>
         <div id="score">Timer</div>
         <div id="timer">00:00:00</div>
+        <div id="units">
+            <span id="hrs">hours</span>
+            <span id="min">minutes</span>
+            <span id="sec">seconds</span>
+        </div>
         <div id="buttons">
             <button id="start" onclick="setTimer()" class="button">Start</button>
             <button id="stop" onclick="stopTimer()" class="button">Stop</button>
         </div>
+    </div>
+
+    <!--Authentication-->
+    <div id="authenticationbox">
+        <span>Login</span><br>
+        <input type="email" class="loginemail" placeholder="Email"><br>
+        <input type="password" class="loginpassword" placeholder="Password"><br><br>
+        <button id="login" class="button"> Login </button><br><br>
+        <span>Sign Up</span><br>
+        <input type="text" class="signupusername" placeholder="Username"><br>
+        <input type="email" class="signupemail" placeholder="Email"><br>
+        <input type="password" class="signuppassword" placeholder="Password"><br><br>
+        <button id="signup" class="button"> Sign Up </button>
+    </div>
+
+    <!--Quote-->
+    <div id="quotebox">
+        <div id="quote">Meaningful quote to help you complete your task</div><br>
+        <span id="name">- Author</span>
+    </div>
+
+    <!--Leaderboard-->
+    <div id="leaderboard">
+        <span>Highscores</span>
+        <div class="position">1. &nbsp;230</div>
+        <div class="position">2. &nbsp;300</div>
+        <div class="position">3. &nbsp;</div>
+        <div class="position">4. &nbsp;9090</div>
+        <div class="position">5. &nbsp;256</div>
+        <div class="position">6. &nbsp;213</div>
+        <div class="position">7. &nbsp;12</div>
+        <div class="position">8. &nbsp;67892634</div>
+        <div class="position">9. &nbsp;34</div>
+        <div class="position">10. 3</div>
     </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->

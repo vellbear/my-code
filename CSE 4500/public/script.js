@@ -3,6 +3,8 @@ var timer;
 var countTime = 0;
 
 function setTimer() {
+    document.getElementById("start").style.display = 'none';
+    document.getElementById("units").style.display = 'inline-block';
     timer = setInterval(startTimer, 1000);
 }
 
@@ -35,27 +37,45 @@ function stopTimer() {
     document.getElementById("score").innerHTML = "Score";
     document.getElementById("timer").innerHTML = countTime;
     countTime = 0;
+    document.getElementById("start").style.display = 'inline-block';
+    document.getElementById("units").style.display = 'none';
 }
 
 /*Authentication*/
 function login() {
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
+    let email = document.querySelector('.loginemail').value.toString();
+    let password = document.querySelector('.loginpassword').value.toString();
 
-    firebase.auth().signInWithEmailAndPassword(email, password);
-    document.getElementById('authenticationbox').style.display = 'none';
-    document.getElementById('showloggedin').style.display = 'block';
-    document.getElementById('logout').style.display = 'block';
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            var user = userCredential.user;
+            document.getElementById('authenticationbox').style.display = 'none';
+            document.getElementById('showloggedin').style.display = 'block';
+            document.getElementById('logout').style.display = 'block';
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert("Invalid Username or Password");
+        });
 }
 
 function signup() {
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
+    let email = document.querySelector('.signupemail').value.toString();
+    let password = document.querySelector('.signuppassword').value.toString();
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
-    document.getElementById('authenticationbox').style.display = 'none';
-    document.getElementById('showsignedin').style.display = 'block';
-    document.getElementById('logout').style.display = 'block';
+        .then((userCredential) => {
+            var user = userCredential.user;
+            document.getElementById('authenticationbox').style.display = 'none';
+            document.getElementById('showsignedin').style.display = 'block';
+            document.getElementById('logout').style.display = 'block';
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert("Your email or password is invalid");
+        });
 }
 
 function logout() {
@@ -69,3 +89,26 @@ function logout() {
 document.getElementById('login').addEventListener('click', login);
 document.getElementById('signup').addEventListener('click', signup);
 document.getElementById('logout').addEventListener('click', logout);
+
+/*Quote API*/
+const data = null;
+
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+    if (this.readyState === this.DONE) {
+        console.log(JSON.stringify(this.responseText));
+        var quote = JSON.parse(this.responseText);
+        var quoteContent = quote.content;
+        var quoteAuthor = quote.originator.name;
+        document.querySelector("#quote").innerHTML = quoteContent;
+        document.querySelector("#name").innerHTML = "-" + quoteAuthor;
+    }
+});
+
+xhr.open("GET", "https://quotes15.p.rapidapi.com/quotes/random/?language_code=en");
+xhr.setRequestHeader("x-rapidapi-key", "d9f6d82617msh276e657dbd25914p1e7965jsn09591f308538");
+xhr.setRequestHeader("x-rapidapi-host", "quotes15.p.rapidapi.com");
+
+xhr.send(data);

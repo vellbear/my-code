@@ -1,13 +1,131 @@
+* {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+    height: 50px;
+    width: 30vw;
+    color: white;
+    background-color: black;
+    border-style: none none solid none;
+    outline: none;
+    border-color: white;
+}
+
 .button {
-    border-style: solid;
-    background-color: dodgerblue;
-    border-color: black;
+    border: solid;
+    background-color: white;
+    border-color: white;
     border-width: 5px;
-    font-size: 50px;
+    font-size: 30px;
+    outline: none;
+    border-radius: 450px;
+    width: 150px;
+    height: 50px;
+}
+
+span {
+    color: dodgerblue;
+}
+
+.button:hover {
+    border-color: dodgerblue;
+}
+
+body {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    flex-wrap: wrap;
 }
 
 
 /*Authentication*/
+
+#authenticationbox {
+    margin: 0 auto;
+    color: white;
+    font-size: 30px;
+    width: 40vw;
+}
+
+#signup {
+    margin-right: 12px;
+}
+
+
+/*Timer*/
+
+.mainbox {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 100px;
+    color: white;
+    padding: auto;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#start {
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+#stop {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#timer {
+    color: dodgerblue;
+    width: 50vw;
+}
+
+#units {
+    font-size: 20px;
+    display: inline-block;
+}
+
+#hrs {
+    padding-left: 10px;
+}
+
+#min {
+    padding-left: 100px;
+    padding-right: 90px;
+}
+
+
+/*Leaderboard*/
+
+#leaderboard div {
+    font-size: 30px;
+    width: 40vw;
+    text-align: left;
+}
+
+#leaderboard {
+    font-size: 50px;
+    text-align: center;
+    display: none;
+}
+
+
+/*Logout Box*/
+
+.logoutbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100vw;
+    font-size: 30px;
+}
 
 #showsignedin,
 #showloggedin,
@@ -15,48 +133,21 @@
     display: none;
 }
 
-#signup {
-    margin-right: 12px;
-}
-
-#login {
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
 #logout {
+    margin-left: 20px;
     display: none;
-    right: 0px;
-}
-
-#email,
-#password {
-    height: 50px;
-    width: 400px;
 }
 
 
-/*Timer*/
+/*Quote Box*/
 
-.mainbox {
-    /*margin: 0 auto;*/
-    text-align: center;
-    font-size: 100px;
+#quotebox {
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    height: 80vh;
-}
-
-#start {
-    margin-right: 10px;
-}
-
-#stop {
-    margin-left: 10px;
-}
-
-#score,
-#timer,
-#buttons {
-    padding-top: 70px;
+    text-align: center;
+    width: 70vw;
 }
