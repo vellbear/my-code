@@ -98,8 +98,8 @@ xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function() {
     if (this.readyState === this.DONE) {
-        console.log(JSON.stringify(this.responseText));
         var quote = JSON.parse(this.responseText);
+        console.log(JSON.stringify(quote));
         var quoteContent = quote.content;
         var quoteAuthor = quote.originator.name;
         document.querySelector("#quote").innerHTML = quoteContent;
