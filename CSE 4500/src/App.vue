@@ -1,7 +1,5 @@
 <template>
-    <Logout :showLogout="showLogout"/>
-    <Timer />
-    <Auth />
+    <Auth><Timer /></Auth>
     <Quote />
 </template>
 
@@ -9,20 +7,18 @@
 import Timer from './components/Timer.vue'
 import Quote from './components/Quote.vue'
 import Auth from './components/Auth.vue'
-import Logout from './components/Logout.vue'
 
 export default {
     name: 'App',
     components: {
         Timer,
         Quote,
-        Auth,
-        Logout
+        Auth
     },
 
     data(){
         return {
-            showLogout:false
+            
         }
     }
 }
@@ -79,5 +75,25 @@ span {
     border-radius: 450px;
     width: 150px;
     height: 50px;
+}
+
+@media only screen and (max-width: 500px){
+    input{
+        width: 50vw;
+    }
+}
+
+@media only screen and (max-width: 1190px){
+    input{
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .button{
+        height: 40px;
+        width: 120px;
+        font-size: 20px;
+    }
 }
 </style>

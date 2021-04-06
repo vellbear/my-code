@@ -1,5 +1,5 @@
 <template>
-    <div class="quotebox" v-if="showQuote">
+    <div class="quotebox">
         <div class="quote">{{ quote }}</div><br>
         <span class="name">{{ author }}</span>
     </div>
@@ -10,18 +10,18 @@ export default {
     data(){
         return{
             quote: 'Meaningful quote to help you complete your task',
-            author: '- Author',
-            showQuote: true
+            author: '- Author'
         }
     },
 
-    mounted() {
-        /*runs while app is mounted*/
-
+    beforeMount() {
         //calls the quote the first time when loading page
-        this.quoteAPI() 
+        this.quoteAPI()  
+    },
+
+    mounted(){
         //quote changes every 30 secs
-        setInterval(this.quoteAPI, 30000) 
+        setInterval(this.quoteAPI, 30000)
     },
 
     methods: {
@@ -42,6 +42,10 @@ export default {
                 })
                 .catch(err => {
                     console.error(err);
+                    //If user keeps spamming refresh like me :P
+                    this.quote = 'Meaningful quote to help you complete your task'
+                    this.author = '- Author'
+                    setTimeout(this.quoteAPI, 1000)
                 })
         }
     }

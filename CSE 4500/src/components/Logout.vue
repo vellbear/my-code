@@ -1,14 +1,17 @@
 <template>
   <div class="logoutbox" v-if="showLogout">
         <div class="showsignedin">{{ signedIn }}</div>
-        <button class="button logout">{{ logout }}</button>
+        <div class="logoutButton"><button class="button logout" @click="logoutClick">{{ logout }}</button></div>
     </div>
 </template>
 
 <script>
 export default {
     props:{
-        showLogout: Boolean
+        showLogout: Boolean,
+        logoutClick: {
+            type: Function
+        }
     },
 
     data(){
@@ -30,9 +33,23 @@ export default {
         margin-bottom: 10px;
         width: 100vw;
         font-size: 30px;
+        flex-wrap: wrap;
     }
 
     .logout{
         margin-left: 30px;
+    }
+
+    @media only screen and (max-width: 500px){
+        .showsignedin{
+            width: 100vw;
+        }
+        .logoutButton{
+            width: 100vw;
+        }
+        .logout{
+            margin-left: 0px;
+            margin-top: 20px;
+        }
     }
 </style>

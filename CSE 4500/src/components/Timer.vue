@@ -1,5 +1,5 @@
 <template>
-  <div class="timer" v-if="showTimer">
+  <div class="timer">
     <div class="title">{{ title }}</div>
     <div class="timerDisplay">{{ time }}</div>
     <div class="units" v-if="showUnits">
@@ -8,7 +8,7 @@
             <span class="sec">seconds</span>
     </div>
     <div class="buttons">
-        <button v-if="showStartButton" class="button startButton" @click="setTimer">{{ startButton }}</button>
+        <button v-if="showStartButton" class="button startButton" @click="setTimer" >{{ startButton }}</button>
         <button v-if="showStopButton" class="button stopButton" @click="stopTimer">{{ stopButton }}</button>
     </div>
   </div>
@@ -29,8 +29,7 @@ export default {
             seconds: 0,
             showStartButton: true,
             showStopButton: false,
-            showUnits: true,
-            showTimer: true
+            showUnits: true
         }
     },
 
@@ -115,5 +114,47 @@ export default {
 
     .startButton, .stopButton{
         margin:20px;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .timer, .timerDisplay{
+            font-size: 50px;
+            width: 100vw;
+        }
+        .units{
+            font-size: 10px;
+        }
+
+        .min{
+            width: 136px;
+        }
+
+        .hrs, .sec{
+            width: 42px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .timer, .timerDisplay{
+            font-size: 75px;
+            width: 100vw;
+        }
+        .units{
+            font-size: 15px;
+        }
+
+        .min{
+            width: 206px;
+        }
+
+        .hrs, .sec{
+            width: 64px;
+        }
+    }
+
+    @media only screen and (max-width: 1190px) {
+        .timer, .timerDisplay{
+            width: 100vw;
+        }
     }
 </style>
