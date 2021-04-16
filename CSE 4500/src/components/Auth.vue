@@ -12,7 +12,7 @@
         <br v-if="showError">
         <form>
             <span>Sign Up</span><br>
-            <input type="text" class="signupusername" placeholder="Username"><br>
+            <input type="text" class="signupusername" placeholder="Username" v-model="username"><br>
             <input type="email" class="signupemail" placeholder="Email" autocomplete="email" v-model="signupemail"><br>
             <input type="password" class="signuppassword" placeholder="Password" autocomplete="current-password" v-model="signuppassword"><br><br>
             <button type="submit" class="button signup" @click="signup"> Sign Up </button>
@@ -37,6 +37,7 @@ export default {
             loginpassword: '',
             signupemail: '',
             signuppassword: '',
+            username: '',
             error: '',
             showError: false,
             showAuthbox: false,
@@ -84,7 +85,7 @@ export default {
                 .catch(() => {
                     this.showAuthbox = true
                     this.showError = true
-                    this.error = 'Invalid email or password!'
+                    this.error = 'Invalid email or password is too short!'
                 })
         },
 
@@ -97,6 +98,11 @@ export default {
         signedin(){
             firebase.auth().onAuthStateChanged((user) => {
                 if(user != null){
+                    this.loginemail = ''
+                    this.loginpassword = ''
+                    this.signupemail = ''
+                    this.signuppassword = ''
+                    this.username = ''
                     this.showAuthbox = false
                     this.showError = false
                     this.showLogout = true
