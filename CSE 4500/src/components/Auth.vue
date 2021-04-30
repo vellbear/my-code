@@ -6,7 +6,7 @@
             <span>Login</span><br>
             <input type="email" class="loginemail" placeholder="Email" autocomplete="email" v-model="loginemail" required><br>
             <input type="password" class="loginpassword" placeholder="Password" autocomplete="current-password" v-model="loginpassword" required><br><br>
-            <button type="submit" class="button login" @click="login"> Login </button><br><br>
+            <button type="button" class="button login" @click="login"> Login </button><br><br>
         </form>
         <div class='error' v-if="showError">{{ error }}</div>
         <br v-if="showError">
@@ -15,7 +15,7 @@
             <input type="text" class="signupusername" placeholder="Username" v-model="username"><br>
             <input type="email" class="signupemail" placeholder="Email" autocomplete="email" v-model="signupemail"><br>
             <input type="password" class="signuppassword" placeholder="Password" autocomplete="current-password" v-model="signuppassword"><br><br>
-            <button type="submit" class="button signup" @click="signup"> Sign Up </button>
+            <button type="button" class="button signup" @click="signup"> Sign Up </button>
         </form>
     </div>  
 </template>
@@ -64,7 +64,7 @@ export default {
 
     methods:{
         login() {
-            this.showAuthbox = false
+            //this.showAuthbox = false
             firebase.auth().signInWithEmailAndPassword(this.loginemail, this.loginpassword)
                 .then(() => {
                     this.signedin()
@@ -77,7 +77,7 @@ export default {
         },
 
         signup() {   
-            this.showAuthbox = false
+            //this.showAuthbox = false
             firebase.auth().createUserWithEmailAndPassword(this.signupemail, this.signuppassword)
                 .then(() => {
                     this.signedin()
@@ -97,7 +97,7 @@ export default {
 
         signedin(){
             firebase.auth().onAuthStateChanged((user) => {
-                if(user != null){
+                if(user){
                     this.loginemail = ''
                     this.loginpassword = ''
                     this.signupemail = ''

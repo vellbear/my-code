@@ -1,5 +1,6 @@
 <template>
   <div class="timer">
+      <div class="highscore" v-if="showHighscore"><span>{{ highscoreText }}</span>{{ highscore }}</div>
     <div class="title">{{ title }}</div>
     <div class="timerDisplay">{{ time }}</div>
     <div class="units" v-if="showUnits">
@@ -19,6 +20,8 @@ export default {
     data(){
         return{
             title: 'Timer',
+            highscoreText: 'Highscore: ',
+            highscore: 0,
             startButton: 'Start',
             stopButton: 'Stop',
             time: '00:00:00',
@@ -29,7 +32,8 @@ export default {
             seconds: 0,
             showStartButton: true,
             showStopButton: false,
-            showUnits: true
+            showUnits: true,
+            showHighscore: false
         }
     },
 
@@ -43,6 +47,7 @@ export default {
             this.showStopButton = true
             this.showStartButton = false
             this.showUnits = true
+            this.showHighscore = false
             this.countTime++
 
             //converts seconds into hr/min/sec
@@ -72,6 +77,10 @@ export default {
             this.title = 'Score'
             this.time = 13 * this.countTime
             this.countTime = 0
+            this.showHighscore = true
+            if(this.highscore < this.time){
+                this.highscore = this.time;
+            }
         }
     }
 }
@@ -88,6 +97,13 @@ export default {
         width: 40vw;
         display: flex;
         flex-direction: column;
+    }
+
+    .highscore{
+        margin-bottom: 20px;
+        font-size: 50px;
+        color: dodgerblue;
+        width: 100%;
     }
 
     .timerDisplay{

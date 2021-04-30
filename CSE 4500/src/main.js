@@ -2,14 +2,14 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import firebase from 'firebase/app'
 
-var firebaseConfig = {
-    apiKey: "AIzaSyBfP9gmGN52iX6W-Gfq0eH9NpAaLkQXzX0",
-    authDomain: "cse4500-vue3-project.firebaseapp.com",
-    projectId: "cse4500-vue3-project",
-    storageBucket: "cse4500-vue3-project.appspot.com",
-    messagingSenderId: "819605304913",
-    appId: "1:819605304913:web:e40473cdce597e0d92aa70",
-    measurementId: "G-EL193E3RZB"
+const firebaseConfig = {
+    apiKey: "AIzaSyAUAao8fe2N63Vbg8na2wOhNVA8e-DY29Y",
+    authDomain: "cse4500.firebaseapp.com",
+    projectId: "cse4500",
+    storageBucket: "cse4500.appspot.com",
+    messagingSenderId: "182128084957",
+    appId: "1:182128084957:web:f3fef93b064bc7c00b5834",
+    measurementId: "G-M178EHPTDD"
 };
 
 firebase.initializeApp(firebaseConfig);
