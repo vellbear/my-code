@@ -1,4 +1,5 @@
 <template>
+<div class="message" v-if="showMessage">{{ message }}</div>
   <div class="timer">
       <div class="highscore" v-if="showHighscore"><span>{{ highscoreText }}</span>{{ highscore }}</div>
     <div class="title">{{ title }}</div>
@@ -16,6 +17,10 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import 'firebase/auth'
+
 export default {
     data(){
         return{
@@ -33,19 +38,38 @@ export default {
             showStartButton: true,
             showStopButton: false,
             showUnits: true,
-            showHighscore: false
+            showHighscore: false,
+            userDoc: '',
+            message: '',
+            showMessage: false
         }
     },
 
+    beforeCreate(){
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.userDoc = user.uid;
+                this.getHighScore();
+                this.showMessage = false
+            } else {
+                this.highscore = 0;
+                this.message = "Please login to save your highscore!"
+                this.showMessage = true
+                console.log('no user is signed in')
+            }
+        })
+    },
+
     methods: {
-        setTimer() {
-            this.timer = setInterval(this.startTimer, 1000)
+        setTimer(e) {
+            e.target.disabled = true
+            this.timer = setInterval(this.startTimer, 1000)    
         },
 
         startTimer() {
             this.title = 'Timer'
-            this.showStopButton = true
             this.showStartButton = false
+            this.showStopButton = !this.showStartButton
             this.showUnits = true
             this.showHighscore = false
             this.countTime++
@@ -72,15 +96,45 @@ export default {
         stopTimer() {
             clearInterval(this.timer)
             this.showUnits = false
-            this.showStartButton = true
             this.showStopButton = false
+            this.showStartButton = !this.showStopButton
             this.title = 'Score'
             this.time = 13 * this.countTime
             this.countTime = 0
             this.showHighscore = true
             if(this.highscore < this.time){
                 this.highscore = this.time;
+                this.saveHighScore(this.highscore)
             }
+        },
+
+        saveHighScore(score){
+            firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                firebase.firestore().collection("Highscore").doc(this.userDoc).set({
+                    score: score
+                })
+                .then(() => {
+                    console.log("Document successfully written!");
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+            } 
+        })
+        },
+        getHighScore(){
+            firebase.firestore().collection("Highscore").doc(this.userDoc).get().then((doc) => {
+                if (doc.exists) {
+                    console.log("Document data:", doc.data().score);
+                    this.highscore = doc.data().score
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
         }
     }
 }
@@ -97,6 +151,13 @@ export default {
         width: 40vw;
         display: flex;
         flex-direction: column;
+    }
+
+    .message{
+        padding-top: 15px;
+        height: 40px;
+        background-color: coral;
+        width: 100%;
     }
 
     .highscore{

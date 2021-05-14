@@ -91,8 +91,9 @@ export default {
 
         logout() {
             firebase.auth().signOut()
-            this.showLogout = false
-            this.showAuthbox = true
+            //this.showLogout = false
+            //this.showAuthbox = true
+            location.reload()
         },
 
         signedin(){
