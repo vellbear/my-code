@@ -41,7 +41,7 @@ export default {
             showHighscore: false,
             userDoc: '',
             message: '',
-            showMessage: false
+            showMessage: true
         }
     },
 
@@ -50,11 +50,11 @@ export default {
             if (user) {
                 this.userDoc = user.uid;
                 this.getHighScore();
-                this.showMessage = false
+                //this.showMessage = false
             } else {
                 this.highscore = 0;
                 this.message = "Please login to save your highscore!"
-                this.showMessage = true
+                //this.showMessage = true
                 console.log('no user is signed in')
             }
         })
@@ -102,6 +102,7 @@ export default {
             this.time = 13 * this.countTime
             this.countTime = 0
             this.showHighscore = true
+            this.getHighScore()
             if(this.highscore < this.time){
                 this.highscore = this.time;
                 this.saveHighScore(this.highscore)
@@ -128,6 +129,11 @@ export default {
                 if (doc.exists) {
                     console.log("Document data:", doc.data().score);
                     this.highscore = doc.data().score
+                    firebase.auth().onAuthStateChanged((user) => {
+                    if(user){
+                        this.message = 'Highscore: ' + this.highscore
+                    }
+                })
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
