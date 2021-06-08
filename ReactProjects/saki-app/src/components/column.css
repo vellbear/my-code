@@ -1,0 +1,32 @@
+.letter {
+	font-size: 17.5rem;
+}
+.description {
+	width: 315px;
+}
+.black-bg {
+	background-color: black;
+	color: var(--bg-primary);
+}
+.border-left {
+	border: 1px solid #d0c2bf;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom-style: none;
+}
+.padding-small {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+.s-position {
+	padding-bottom: 50px;
+}
+.k-position {
+	padding-bottom: 250px;
+}
+.i-position {
+	padding-top: 50px;
+}
+.letter-transparent {
+	opacity: 85%;
+}

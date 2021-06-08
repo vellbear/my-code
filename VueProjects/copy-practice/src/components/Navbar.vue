@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-light navbar-expand-lg">
+  <nav class="nav navbar navbar-light navbar-expand-lg">
         <div class="container-fluid">
             <div class="container-fluid d-flex align-items-center p-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -18,6 +18,9 @@ export default {
 </script>
 
 <style>
+    .nav{
+        box-shadow: none;
+    }
     .brand{
         font-family: 'Prompt', sans-serif;
     }
