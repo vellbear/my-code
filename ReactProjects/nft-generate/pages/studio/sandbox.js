@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./sandbox.module.css";
 import ReactDOM from "react-dom";
-
+import ImageModal from "../../components/Modal";
+/*NOTE: Fix Modal */
 function sandbox() {
 	return (
 		<>
@@ -37,9 +38,14 @@ function renderImage() {
 		}
 		const fileImage = (
 			<div
-				id="previewImage"
 				className={styles.previewImageContainer}
 				key={images[i].size + images[i].lastModified}
+				onMouseEnter={() => {
+					showModal(i);
+				}}
+				onMouseLeave={() => {
+					hideModal(i);
+				}}
 			>
 				<Image
 					alt="fileImage"
@@ -47,6 +53,7 @@ function renderImage() {
 					layout="fill"
 					objectFit="cover"
 				/>
+				<ImageModal src={URL.createObjectURL(images[i])} />
 			</div>
 		);
 		allFileImages[i] = fileImage;
@@ -55,6 +62,18 @@ function renderImage() {
 		/*Renders all of the images into a preview window*/
 	}
 	ReactDOM.render(allFileImages, document.getElementById("previewContainer"));
+}
+
+function showModal(index) {
+	document.getElementsByClassName(styles.previewImageContainer)[
+		index
+	].children[1].style.display = "block";
+}
+
+function hideModal(index) {
+	document.getElementsByClassName(styles.previewImageContainer)[
+		index
+	].children[1].style.display = "none";
 }
 
 export default sandbox;
