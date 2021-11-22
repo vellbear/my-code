@@ -7,6 +7,7 @@ module.exports = {
 				input: "3rem",
 			},
 			width: {
+				small: "280px",
 				default: "535px",
 				medium: "435px",
 				large: "575px",

@@ -43,7 +43,7 @@ function App() {
 				Your bookmarks sync between your devices so you can access them on the go."
 				/>
 			</div>
-			<div className="h-large">
+			<div className="xl:h-large">
 				<SectionSelect
 					slotOne={
 						<Section
@@ -88,7 +88,7 @@ function App() {
 				  got a favourite you’d like us to prioritize."
 				/>
 			</div>
-			<div className="flex justify-center">
+			<div className="flex xl:justify-center xl:flex-row flex-col items-center">
 				<Card
 					logo={logoChrome}
 					title="Add to Chrome"

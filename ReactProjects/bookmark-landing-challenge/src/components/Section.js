@@ -19,22 +19,22 @@ export default function Section(props) {
 					<>{props.slot}</>
 				</section>
 			) : (
-				<section className="grid grid-cols-2">
+				<section className="xl:grid xl:grid-cols-2 flex flex-col items-center">
 					{props.imageLeft ? (
 						<>
-							<div className="flex justify-end">
+							<div className="flex xl:justify-end">
 								<img className="pt-20" src={props.image} alt="" />
 							</div>
 							<div className="flex flex-col justify-center items-center">
 								<Paragraph
 									title={props.title}
 									description={props.description}
-									align="items-left"
-									textalign="text-left"
+									align="xl:items-left items-center"
+									textalign="xl:text-left text-center"
 									titlesize={props.titlesize}
 									width="w-medium"
 								/>
-								<div className="flex justify-start pt-6 w-medium">
+								<div className="flex xl:justify-start justify-center pt-6 w-medium">
 									{props.oneButton ? (
 										<>
 											<Button text={props.firstbutton} default={false} />
@@ -52,18 +52,18 @@ export default function Section(props) {
 						</>
 					) : (
 						<>
-							<div className="flex flex-col justify-center pl-40">
+							<div className="flex flex-col justify-center pt-14 xl:pl-40">
 								<Paragraph
 									editDescription={props.editDescription}
 									editTitle={props.editTitle}
 									editParagraph={props.editParagraph}
 									title={props.title}
 									description={props.description}
-									align="items-left"
-									textalign="text-left"
+									align="xl:items-left items-center"
+									textalign="xl:text-left text-center"
 									titlesize={props.titlesize}
 								/>
-								<div className="flex justify-start pt-6">
+								<div className="flex xl:justify-start justify-center pt-6">
 									{props.oneButton ? (
 										<>
 											<Button text={props.firstbutton} default={false} />

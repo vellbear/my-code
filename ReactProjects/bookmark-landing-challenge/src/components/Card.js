@@ -5,7 +5,7 @@ import dots from "../assets/images/bg-dots.svg";
 export default function Card(props) {
 	return (
 		<div
-			className={`flex flex-col items-center ml-4 mr-4 rounded-2xl shadow-xl min-h-card h-card ${props.offset}`}
+			className={`flex flex-col items-center ml-4 mr-4 rounded-2xl shadow-xl min-h-card h-card w-small ${props.offset}`}
 		>
 			<div className="pt-10">
 				<img src={props.logo} alt="" />

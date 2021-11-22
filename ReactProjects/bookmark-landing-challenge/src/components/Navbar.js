@@ -28,7 +28,7 @@ export default function Navbar(props) {
 								<NavItem navtext={props.navtextTwo} />
 								<NavItem navtext={props.navtextThree} />
 							</ul>
-							<div className="pl-12 mr-32">
+							<div className="pl-12 mr-40">
 								<Button
 									default={false}
 									text={props.text}
@@ -54,7 +54,7 @@ export default function Navbar(props) {
 								<NavItem navtext={props.navtextTwo} />
 								<NavItem navtext={props.navtextThree} />
 							</ul>
-							<div className="flex absolute right-36">
+							<div className="flex absolute right-40">
 								<span className="pr-10">
 									<img src={iconFacebook} alt="" />
 								</span>
