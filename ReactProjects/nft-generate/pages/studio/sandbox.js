@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./sandbox.module.css";
 import ReactDOM from "react-dom";
 import ImageModal from "../../components/Modal";
-/*NOTE: Fix Modal */
+/*NOTE: Improve Image Modal */
 function sandbox() {
 	return (
 		<>
