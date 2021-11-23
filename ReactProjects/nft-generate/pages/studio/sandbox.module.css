@@ -1,0 +1,14 @@
+.previewImageContainer {
+	position: relative;
+	height: 250px;
+	width: 250px;
+	margin: 10px;
+}
+.previewContainer {
+	width: 100%;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	overflow-y: scroll;
+	justify-content: center;
+}

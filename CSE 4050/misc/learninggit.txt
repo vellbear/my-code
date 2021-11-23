@@ -1,0 +1,288 @@
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git
+$ git init
+Initialized empty Git repository in D:/Git/.git/
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git config --global user.name "Your Name"
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git config --global user.email "005961913@coyote.csusb.edu"
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git config --global color.ui auto
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git add README.md
+fatal: pathspec 'README.md' did not match any files
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ echo "#myCode" >> README.md
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git status]
+git: 'status]' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git add README.md
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   README.md
+
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git commit -m "first commit"
+[master (root-commit) c7e342c] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git branch
+* master
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git remote add origin ash
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git remote add origin ash
+fatal: remote origin already exists.
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git push -u orgin master
+fatal: 'orgin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git remote add git@github.com:Llxovell/myCode.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git remote add orgin git@github.com:Llxovell/myCode.git
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git branch
+* master
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ echo "test text file" << test.txt
+> bash: warning: here-document at line 21 delimited by end-of-file (wanted `test.txt')
+test text file
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ touch text.txt
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        text.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git add text.txt
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git commit -m "added text file"
+[master 14ba127] added text file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 text.txt
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ ls -al ~/.ssh
+ls: cannot access '/c/Users/level/.ssh': No such file or directory
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ dir
+README.md  text.txt
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ ssh-keygen -t rsa -b 4096 -C "005961913@coyote.csusb.edu"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/level/.ssh/id_rsa):
+Created directory '/c/Users/level/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/level/.ssh/id_rsa
+Your public key has been saved in /c/Users/level/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:yhAHdfaxdjR2xjWCdbtE/WKbLMMm/3D9UdO9DeZ/9SE 005961913@coyote.csusb.edu
+The key's randomart image is:
++---[RSA 4096]----+
+|    ... o . *+o=o|
+|     . o . * += +|
+|    . .   + .  o.|
+|     o   . .  + =|
+|    .   S  . oo*+|
+|     o .  . =E++*|
+|      o    +.o+o*|
+|            .o .=|
+|             .. +|
++----[SHA256]-----+
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ #start the ssh-agent in the background
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ eval $(ssh-agent -s)
+Agent pid 1695
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ ssh-add ~/.ssh/id_rsa
+Enter passphrase for /c/Users/level/.ssh/id_rsa:
+Identity added: /c/Users/level/.ssh/id_rsa (005961913@coyote.csusb.edu)
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ clip < ~.ssh/id_rsa.pub
+bash: ~.ssh/id_rsa.pub: No such file or directory
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ clip < ~C^Csh/id_rsa.pub
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ clip < ~/c/Users/level/.ssh/id_rsa.pub
+bash: /c/Users/level/c/Users/level/.ssh/id_rsa.pub: No such file or directory
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git remote add orgin git@github.com:Llxovell/myCode.git
+fatal: remote orgin already exists.
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git branch -M master
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git push -u orgin master
+The authenticity of host 'github.com (192.30.255.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of known hosts.
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (6/6), 474 bytes | 474.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:Llxovell/myCode.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'orgin'.
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ touch test.txt
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git status
+On branch master
+Your branch is up to date with 'orgin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git add test.txt
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git status
+On branch master
+Your branch is up to date with 'orgin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   test.txt
+
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git commit -m "added test file"
+[master 230558f] added test file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.txt
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git status
+On branch master
+Your branch is ahead of 'orgin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 277 bytes | 277.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:Llxovell/myCode.git
+   14ba127..230558f  master -> master
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
+$ git log
+commit 230558fdca5749df238d56e20d6d96a6838cc71f (HEAD -> master, orgin/master)
+Author: Your Name <005961913@coyote.csusb.edu>
+Date:   Fri Aug 28 20:40:15 2020 -0700
+
+    added test file
+
+commit 14ba1275c0a27c4f12e7cfc3343f69cac7fbca4a
+Author: Your Name <005961913@coyote.csusb.edu>
+Date:   Fri Aug 28 20:21:46 2020 -0700
+
+    added text file
+
+commit c7e342c0a1754eb0fcd0ef8f0b626806cc363a05
+Author: Your Name <005961913@coyote.csusb.edu>
+Date:   Fri Aug 28 20:14:26 2020 -0700
+
+    first commit
+
+Levell@DESKTOP-8BFDODB MINGW64 /d/Git (master)
